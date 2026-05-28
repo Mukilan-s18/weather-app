@@ -1,0 +1,200 @@
+:root {
+  --font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  --bg-gradient: linear-gradient(135deg, #1e3a8a, #4c1d95, #312e81, #0f172a);
+  
+  /* Glassmorphism variables */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-bg-hover: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+  --glass-blur: blur(20px);
+  --glass-radius: 24px;
+  
+  /* Dropdown specific */
+  --dropdown-bg: rgba(15, 23, 42, 0.95);
+  
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  
+  /* Accents */
+  --accent-blue: #3b82f6;
+  --accent-amber: #f59e0b;
+}
+
+[data-theme="clear-day"] {
+  --bg-gradient: url('/images/bg_sunny.png');
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.9);
+  --glass-bg: rgba(0, 0, 0, 0.2);
+  --glass-bg-hover: rgba(0, 0, 0, 0.35);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --dropdown-bg: rgba(0, 0, 0, 0.85);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="cloudy"] {
+  --bg-gradient: url('/images/bg_cloudy.png');
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --glass-bg: rgba(0, 0, 0, 0.3);
+  --glass-bg-hover: rgba(0, 0, 0, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --dropdown-bg: rgba(15, 23, 42, 0.85);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="rain"] {
+  --bg-gradient: url('/images/bg_rain.png');
+  --dropdown-bg: rgba(71, 85, 105, 0.95);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="thunderstorm"] {
+  --bg-gradient: url('/images/bg_thunder.png');
+  --dropdown-bg: rgba(15, 23, 42, 0.95);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="snow"] {
+  --bg-gradient: url('/images/bg_snow.png');
+  --dropdown-bg: rgba(2, 6, 23, 0.95);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --glass-bg: rgba(0, 0, 0, 0.2);
+  --glass-bg-hover: rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="night"] {
+  --bg-gradient: url('/images/bg_night.png');
+  --dropdown-bg: rgba(2, 6, 23, 0.95);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 12px; /* Reduces all rem-based sizes to 75% */
+}
+
+body {
+  font-family: var(--font-family);
+  background-image: var(--bg-gradient);
+  background-color: #0f172a;
+  background-size: 110% 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: gradientShift 40s ease-in-out infinite alternate;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-image 1s ease, color 0.5s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Base Utility Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur); /* Safari */
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--glass-radius);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Beautiful light sweeping effect inside glass panels */
+.glass-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-20deg);
+  transition: all 0.6s ease;
+}
+
+.glass-panel:hover::after {
+  left: 200%;
+}
+
+.glass-panel:hover {
+  background: var(--glass-bg-hover);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+
+/* Animations */
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); filter: drop-shadow(0 20px 30px rgba(255,255,255,0.6)); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-fade-in {
+  animation: fadeInSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Utility to stagger children animations */
+.stagger-1 { animation-delay: 0.1s; opacity: 0; }
+.stagger-2 { animation-delay: 0.2s; opacity: 0; }
+.stagger-3 { animation-delay: 0.3s; opacity: 0; }
+.stagger-4 { animation-delay: 0.4s; opacity: 0; }
+
+input:focus {
+  outline: none;
+}
