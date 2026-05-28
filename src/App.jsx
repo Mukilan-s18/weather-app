@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import { getWeather, getWeatherCondition } from './services/weatherService';
 import { WeatherIcon } from './components/WeatherIcon';
@@ -22,7 +22,7 @@ function App() {
     name: "Chennai", country: "India", lat: 13.0827, lon: 80.2707
   });
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setLoading(true);
     try {
       const data = await getWeather(location.lat, location.lon);
@@ -34,13 +34,13 @@ function App() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [location]);
 
   useEffect(() => {
     fetchData();
     const interval = setInterval(fetchData, 10 * 60 * 1000);
     return () => clearInterval(interval);
-  }, [location]);
+  }, [fetchData]);
 
   if (loading && !weatherData) {
     return (

@@ -4,6 +4,8 @@ import { WeatherIcon } from './WeatherIcon';
 import { getWeatherCondition } from '../services/weatherService';
 
 const HourlyForecast = ({ weatherData, units }) => {
+  const [nowLimit] = React.useState(() => Date.now() - 3600000);
+
   if (!weatherData) return null;
 
   return (
@@ -14,7 +16,7 @@ const HourlyForecast = ({ weatherData, units }) => {
       <div className="hourly-container">
         {weatherData.hourly.time
           .map((time, index) => ({ time, index }))
-          .filter(item => item.time * 1000 > Date.now() - 3600000) // Keep current hour and future hours
+          .filter(item => item.time * 1000 > nowLimit) // Keep current hour and future hours
           .slice(0, 24)
           .map((item, mappedIndex) => {
             const { time, index } = item;

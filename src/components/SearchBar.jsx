@@ -6,13 +6,13 @@ const SearchBar = ({ onLocationSelect, setLoading }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [recentSearches, setRecentSearches] = useState([]);
+  const [recentSearches, setRecentSearches] = useState(() => {
+    const saved = localStorage.getItem('recentSearches');
+    return saved ? JSON.parse(saved) : [];
+  });
   const searchRef = useRef(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem('recentSearches');
-    if (saved) setRecentSearches(JSON.parse(saved));
-
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
         setShowDropdown(false);
