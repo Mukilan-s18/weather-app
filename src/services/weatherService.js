@@ -52,7 +52,11 @@ export const getWeather = async (lat, lon) => {
         current: {
           us_aqi: data.current.air_quality["us-epa-index"] * 30, // rough mapping to 0-500 scale
           pm10: data.current.air_quality.pm10,
-          pm2_5: data.current.air_quality.pm2_5
+          pm2_5: data.current.air_quality.pm2_5,
+          nitrogen_dioxide: data.current.air_quality.no2,
+          ozone: data.current.air_quality.o3,
+          carbon_monoxide: data.current.air_quality.co,
+          sulphur_dioxide: data.current.air_quality.so2
         }
       }
     };

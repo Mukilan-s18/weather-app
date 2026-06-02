@@ -59,7 +59,7 @@ const WeatherHighlights = ({ weatherData, units }) => {
 
       <div className="detail-card glass-panel hover-card" title="Visibility distance">
         <div className="detail-header">
-          <Eye size={18} /> Visiblity
+          <Eye size={18} /> Visibility
         </div>
         <div className="detail-value">{(10 - (weatherData.current.cloud_cover / 10)).toFixed(1)} km</div>
         <div className="detail-desc">

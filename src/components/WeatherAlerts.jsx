@@ -10,11 +10,11 @@ const WeatherAlerts = ({ weatherData }) => {
     const temp = weatherData.current.temperature_2m;
     
     // Thunderstorm
-    if ([95, 96, 99].includes(code)) return "⚠ Thunderstorm warning in effect for this area.";
+    if ([1087, 1273, 1276, 1279, 1282].includes(code)) return "⚠ Thunderstorm warning in effect for this area.";
     // Heavy Rain
-    if ([65, 67, 82].includes(code)) return "⚠ Heavy rain alert. Possibility of localized flooding.";
+    if ([1195, 1201, 1243, 1246].includes(code)) return "⚠ Heavy rain alert. Possibility of localized flooding.";
     // Heavy Snow
-    if ([75, 86].includes(code)) return "⚠ Heavy snow warning. Travel may be affected.";
+    if ([1225, 1258].includes(code)) return "⚠ Heavy snow warning. Travel may be affected.";
     // Extreme Heat
     if (temp >= 35) return "⚠ Heatwave warning. Avoid prolonged sun exposure.";
     // Extreme Cold

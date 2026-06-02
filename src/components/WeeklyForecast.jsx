@@ -40,7 +40,7 @@ const WeeklyForecast = ({ weatherData, units }) => {
           const widthPercent = ((max - min) / safeRange) * 100;
 
           return (
-            <div key={time} className="daily-item hover-card" style={{ borderBottom: isToday ? '1px solid var(--glass-border)' : 'none', background: isToday ? 'var(--glass-bg-hover)' : 'transparent', padding: isToday ? '1rem' : '1rem 0', borderRadius: isToday ? '12px' : '0' }}>
+            <div key={time} className="daily-item hover-card" style={{ borderBottom: isToday ? '1px solid var(--glass-border)' : (index === 6 ? 'none' : '1px solid var(--glass-border)'), background: isToday ? 'var(--glass-bg-hover)' : 'transparent', padding: isToday ? '1rem' : '1rem 0', borderRadius: isToday ? '12px' : '0' }}>
               <div className="daily-day" style={{ minWidth: '55px', flex: 1, fontWeight: isToday ? 700 : 500 }}>{isToday ? 'Today' : weekday}</div>
               <div className="daily-icon" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
                 <WeatherIcon name={dailyCond.icon} size={24} />
