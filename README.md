@@ -25,9 +25,7 @@
     </a>
   </p>
   
-  <p>
-    <i>This project was developed as my final web development and mobile application project in the previous semester.</i>
-  </p>
+
 </div>
 
 <hr>
