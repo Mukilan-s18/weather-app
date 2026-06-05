@@ -1,32 +1,38 @@
 ---
-name: Bug Report
-about: Create a report to help us improve the weather dashboard.
-title: 'fix: '
+name: Bug report
+about: Create a report to help us improve AeroWeather
+title: "[BUG] "
 labels: bug
 assignees: ''
 
 ---
 
-**Describe the Bug**
+**Describe the bug**
 A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
-1. Search for city '...'
-2. Click on '...'
-3. Toggle units to '...'
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
 4. See error
 
-**Expected Behavior**
+**Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Screenshots/Recordings**
-If applicable, add screenshots or recordings to help explain your problem.
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
-**Environment (please complete the following information):**
-- Browser: [e.g. Chrome, Safari]
-- Device: [e.g. iPhone 15, Macbook Pro]
-- Operating System: [e.g. iOS, macOS, Windows]
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS, Mac, Windows]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
 
-**Additional Context**
-Add any other context about the problem here (e.g. console errors, network requests).
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser [e.g. stock browser, safari]
+ - Version [e.g. 22]
+
+**Additional context**
+Add any other context about the problem here.

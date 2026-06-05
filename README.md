@@ -1,162 +1,123 @@
 <div align="center">
-  
-  # 🌤️ AeroWeather
-  
-  **A premium, high-fidelity weather dashboard featuring dynamic themes and real-time radar mapping.**
-  
-  [![GitHub License](https://img.shields.io/github/license/Mukilan-s18/weather-app?style=for-the-badge&color=blue)](LICENSE)
-  [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Mukilan-s18/weather-app/ci.yml?style=for-the-badge&label=build)](https://github.com/Mukilan-s18/weather-app/actions)
-  [![Vite Version](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev)
-  [![React Version](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+  <img src=".github/assets/preview.png" alt="AeroWeather Preview Mockup" width="800">
 
-  <br />
+  <h1>🌤️ AeroWeather</h1>
+
+  <p>
+    <strong>A stunning, high-performance weather dashboard built with React and Vite.</strong>
+  </p>
+
+  <p>
+    <a href="https://github.com/mukilan/weather-app/actions/workflows/ci.yml">
+      <img src="https://github.com/mukilan/weather-app/actions/workflows/ci.yml/badge.svg" alt="CI Status">
+    </a>
+    <a href="https://github.com/mukilan/weather-app/actions/workflows/deploy.yml">
+      <img src="https://github.com/mukilan/weather-app/actions/workflows/deploy.yml/badge.svg" alt="Deployment Status">
+    </a>
+    <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+    </a>
+    <a href="https://github.com/mukilan/weather-app/issues">
+      <img src="https://img.shields.io/github/issues/mukilan/weather-app" alt="Issues">
+    </a>
+    <a href="https://github.com/mukilan/weather-app/stargazers">
+      <img src="https://img.shields.io/github/stars/mukilan/weather-app" alt="Stars">
+    </a>
+  </p>
   
-  [**Explore Live Demo »**](https://Mukilan-s18.github.io/weather-app/)
-  
-  <br />
-  
-  <img src=".github/assets/preview.png" alt="AeroWeather Premium Dashboard Mockup" width="100%" style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.55);" />
+  <p>
+    <i>This project was developed as my final web development and mobile application project in the previous semester.</i>
+  </p>
 </div>
 
----
+<hr>
 
-## 📖 Table of Contents
-- [Why AeroWeather?](#-why-aeroweather)
-- [✨ Core Features](#-core-features)
-- [🧩 Architecture & Data Flow](#-architecture--data-flow)
-- [🛠️ Tech Stack](#️-tech-stack)
-- [🚀 Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [📦 Building & Production](#-building--production)
-- [🔒 Security & Community Guidelines](#-security--community-guidelines)
-- [🗺️ Future Roadmap](#️-future-roadmap)
-- [📄 License](#-license)
+## ✨ Features
 
----
+- **Real-Time Data**: Get instantaneous, accurate weather updates for any global location.
+- **7-Day Forecast**: Plan your week with comprehensive daily forecasts and temperature ranges.
+- **Advanced Metrics**: View humidity, wind speed, pressure, UV index, and visibility in interactive cards.
+- **Interactive Radar Map**: Visualize precipitation, cloud cover, and temperature gradients directly in the app.
+- **Glassmorphic UI**: Enjoy a sleek, premium, modern dark-mode aesthetic with fluid micro-interactions.
+- **Responsive Design**: Beautifully optimized for desktops, tablets, and mobile devices.
 
-## 🌟 Why AeroWeather?
+## 🚀 Live Demo
 
-AeroWeather isn't just another simple API project. It's an **enterprise-ready, high-fidelity single page dashboard** engineered to show off beautiful glassmorphism design patterns, clean separation of concerns, and smart integrations. 
+[Experience AeroWeather Live](#) <!-- Add your GitHub Pages URL here once deployed -->
 
-The color scheme and background environment of the entire application adapt in real-time, synchronizing with the user's searched city weather (clear skies, snow, rainy, thunderstorm, or night).
+## 🛠️ Architecture
 
----
-
-## ✨ Core Features
-
-*   **⚡ Real-Time Atmospheric Details**: Accurate, live metrics for temperature, apparent temperature ("Feels like"), humidity, wind speed, wind gusts, wind direction, UV index, and barometric pressure.
-*   **🎨 Dynamic Adaptive Theming**: Seamless styling transitions between sunny, cloudy, rain, snow, thunderstorm, and night styles using a CSS custom variables architecture.
-*   **📊 Hourly & Weekly Projections**: 
-    *   *24-Hour Forecast*: Slideable timeline graph representing the upcoming hours with precise precipitation and temperature percentages.
-    *   *7-Day Trend*: Beautifully styled card showing maximum/minimum margins per day.
-*   **🛰️ Live Weather Radar Map**: Dynamic Leaflet & Windy iframe integration allowing users to toggle between rain, wind, temperature, cloud cover, and pressure overlays.
-*   **🍃 Air Quality Monitoring**: Continuous updates on PM2.5, PM10 levels mapped against EPA guidelines.
-*   **☀️ Solar Tracker**: Dynamic celestial curve illustrating current solar progression, sunrise, sunset, and twilight phases.
-*   **📱 Responsive & Fluid**: Perfect, lag-free rendering on all desktop and mobile viewport structures with interactive hover animations.
-
----
-
-## 🧩 Architecture & Data Flow
-
-Below is the step-by-step workflow of the application, showing how user queries translate into dashboard updates:
+AeroWeather follows a component-based architecture for optimal reusability and maintainability.
 
 ```mermaid
-graph TD
-    User([User Search / GeoLocation]) --> Search[Geocoding API Search]
-    Search --> SelectCity[Select City / Coordinates]
-    SelectCity --> FetchWeather[WeatherAPI Forecast Fetch]
-    FetchWeather --> DataState[React State Update]
-    DataState --> ThemeChange[Dynamic Theme / Background Switcher]
-    DataState --> RenderCurrent[Main Weather Card]
-    DataState --> RenderHourly[Hourly & Weekly Forecasts]
-    DataState --> RenderAqi[Air Quality & Solar Timeline]
-    DataState --> WindyRadar[Embed Windy Map Overlay]
+graph TD;
+    App-->SearchBar;
+    App-->MainWeatherCard;
+    App-->ForecastList;
+    App-->AdvancedMetrics;
+    App-->RadarMap;
+    App-->WeatherService[Weather API Service];
+    WeatherService-->ExternalAPI[OpenWeather/Similar API];
 ```
 
----
+## 💻 Tech Stack
 
-## 🛠️ Tech Stack
+- **Framework**: [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Styling**: Vanilla CSS with modern Glassmorphism techniques
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: GitHub Pages via GitHub Actions CI/CD
 
-AeroWeather leverages a clean, modern tech stack designed for speed and maintainability:
+## 📥 Getting Started
 
-*   **Framework**: [React 19](https://react.dev/) (Functional components, custom Hooks)
-*   **Build System**: [Vite 8](https://vite.dev/) (Ultrafast hot module replacement)
-*   **Icons**: [Lucide React](https://lucide.dev/) (Vector icons library)
-*   **Http Client**: [Axios](https://axios-http.com/) (For robust caching-ready fetches)
-*   **Map System**: [Windy Embed API](https://api.windy.com/) (Interactive radar overlays)
-
----
-
-## 🚀 Getting Started
-
-Follow these instructions to run a copy of the project on your local machine for development and testing.
+Follow these steps to set up the project locally.
 
 ### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) installed (v18 or higher recommended).
+
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
 ### Installation
 
-1.  **Clone the Repository**:
-    ```bash
-    git clone https://github.com/Mukilan-s18/weather-app.git
-    cd weather-app
-    ```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/mukilan/weather-app.git
+   cd weather-app
+   ```
 
-2.  **Install Dependencies**:
-    ```bash
-    npm install
-    ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-3.  **Run Development Server**:
-    ```bash
-    npm run dev
-    ```
+3. **Set up Environment Variables:**
+   Create a `.env` file in the root directory and add your weather API key:
+   ```env
+   VITE_WEATHER_API_KEY=your_api_key_here
+   ```
 
-4.  **Open in Browser**:
-    Navigate to `http://localhost:5173`.
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
----
+## 🤝 Contributing
 
-## 📦 Building & Production
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) for detailed information on how you can get involved, submit pull requests, and report issues.
 
-To compile and optimize assets for deployment:
+## 🐛 Bug Reports & Feature Requests
 
-```bash
-npm run build
-```
+Encountered an issue or have an idea for a new feature? 
+Use our [Issue Tracker](https://github.com/mukilan/weather-app/issues) and fill out the respective templates.
 
-To preview the production bundle locally:
+## 🛡️ Security
 
-```bash
-npm run preview
-```
-
-### GitHub Actions CI/CD Deployment
-AeroWeather uses automated GitHub workflows:
-*   `.github/workflows/ci.yml`: Performs a lint audit and build verify check on every incoming Pull Request.
-*   `.github/workflows/deploy.yml`: Compiles and pushes output to the `gh-pages` server block on a push to `main`.
-
----
-
-## 🔒 Security & Community Guidelines
-
-We follow strict software engineering practices to ensure AeroWeather remains secure, welcoming, and open to contributions. Please review the following files:
-*   [LICENSE](LICENSE) (MIT Open Source License)
-*   [CONTRIBUTING.md](CONTRIBUTING.md) (Developer setups and code guidelines)
-*   [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) (Community standards guidelines)
-*   [SECURITY.md](SECURITY.md) (Security vulnerability reporting workflow)
-
----
-
-## 🗺️ Future Roadmap
-
-- [ ] **Multi-City Pinning**: Allow users to save their favorite cities to a persistent dashboard dock.
-- [ ] **Desktop PWA Support**: Enable service workers for offline caching and desktop launcher install.
-- [ ] **Push Weather Alerts**: Integrate Web Push API to alert users of storm warnings in pinned cities.
-
----
+If you discover a security vulnerability, please refer to our [Security Policy](SECURITY.md) for reporting instructions.
 
 ## 📄 License
 
-Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
+This project is licensed under the [MIT License](LICENSE).
+
+---
+<div align="center">
+  Crafted with ❤️ by <a href="https://github.com/mukilan">Mukilan</a>
+</div>

@@ -1,20 +1,20 @@
 ---
-name: Feature Request
-about: Suggest an idea or enhancement for this weather dashboard.
-title: 'feat: '
+name: Feature request
+about: Suggest an idea for this project
+title: "[FEATURE] "
 labels: enhancement
 assignees: ''
 
 ---
 
 **Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. E.g. "I'm frustrated when I can't pin my favorite cities..."
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-**Describe the Solution You'd Like**
+**Describe the solution you'd like**
 A clear and concise description of what you want to happen.
 
-**Describe Alternatives You've Considered**
+**Describe alternatives you've considered**
 A clear and concise description of any alternative solutions or features you've considered.
 
-**Additional Context**
-Add any other context or mockups about the feature request here.
+**Additional context**
+Add any other context or screenshots about the feature request here.
