@@ -35,8 +35,8 @@ export const getWeather = async (lat, lon) => {
         weather_code: data.forecast.forecastday.map(d => d.day.condition.code),
         temperature_2m_max: data.forecast.forecastday.map(d => d.day.maxtemp_c),
         temperature_2m_min: data.forecast.forecastday.map(d => d.day.mintemp_c),
-        sunrise: data.forecast.forecastday.map(d => Math.floor(new Date(`${d.date} ${d.astro.sunrise}`).getTime() / 1000)),
-        sunset: data.forecast.forecastday.map(d => Math.floor(new Date(`${d.date} ${d.astro.sunset}`).getTime() / 1000)),
+        sunrise: data.forecast.forecastday.map(d => Math.floor(new Date(`${d.date.replace(/-/g, '/')} ${d.astro.sunrise}`).getTime() / 1000)),
+        sunset: data.forecast.forecastday.map(d => Math.floor(new Date(`${d.date.replace(/-/g, '/')} ${d.astro.sunset}`).getTime() / 1000)),
         precipitation_sum: data.forecast.forecastday.map(d => d.day.totalprecip_mm),
         precipitation_probability_max: data.forecast.forecastday.map(d => d.day.daily_chance_of_rain)
       },
