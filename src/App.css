@@ -369,3 +369,52 @@ header {
     transform: rotate(360deg);
   }
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 1rem;
+  }
+  
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .brand {
+    justify-content: center;
+  }
+  
+  .search-container {
+    max-width: 100%;
+  }
+  
+  .current-weather {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+  
+  .condition {
+    justify-content: center;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .temperature {
+    font-size: 5rem;
+  }
+  
+  .location-name {
+    font-size: 2.2rem;
+  }
+  
+  .current-icon-lg {
+    transform: scale(1);
+    margin-bottom: -1rem;
+  }
+}
