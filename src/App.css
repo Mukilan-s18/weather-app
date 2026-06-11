@@ -175,7 +175,7 @@ header {
 
 .current-icon-lg {
   color: currentColor;
-  filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5));
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
   transform: scale(1.3);
 }
 

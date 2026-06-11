@@ -40,10 +40,8 @@ export const WeatherIcon = ({ name, size = 24, className = "" }) => {
           fontSize: `${size}px`,
           lineHeight: 1,
           display: 'inline-block',
-          filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))',
-          textShadow: 'none',
-          fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif',
-          fontStyle: 'normal'
+          textShadow: '0 4px 12px rgba(0,0,0,0.4)',
+          fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif'
         }}
       >
         {weatherEmojis[name]}

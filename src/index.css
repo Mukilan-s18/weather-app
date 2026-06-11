@@ -161,7 +161,7 @@ body {
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); filter: drop-shadow(0 20px 30px rgba(255,255,255,0.6)); }
+  50% { transform: translateY(-15px); text-shadow: 0 20px 30px rgba(255,255,255,0.6); }
   100% { transform: translateY(0px); }
 }
 
