@@ -1,6 +1,6 @@
 import React from 'react';
-import { 
-  Search, Droplets, Wind, Thermometer, 
+import {
+  Search, Droplets, Wind, Thermometer,
   Navigation, Umbrella, SunDim, MapPin, Cloud
 } from 'lucide-react';
 
@@ -34,11 +34,11 @@ export const WeatherIcon = ({ name, size = 24, className = "" }) => {
   // If it's a weather condition, render the hyper-realistic OS emoji
   if (weatherEmojis[name]) {
     return (
-      <span 
-        className={`weather-icon ${className}`} 
-        style={{ 
-          fontSize: `${size}px`, 
-          lineHeight: 1, 
+      <span
+        className={`weather-icon ${className}`}
+        style={{
+          fontSize: `${size}px`,
+          lineHeight: 1,
           display: 'inline-block',
           filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))',
           textShadow: 'none',
